@@ -1,0 +1,116 @@
+#!/usr/bin/env node
+'use strict';
+
+/** Build the client payload directly from the sibling standalone Gen III server. */
+
+const fs = require('node:fs');
+const path = require('node:path');
+
+const ROOT = path.resolve(__dirname, '..');
+const SERVER = path.resolve(ROOT, '../server');
+const OUTPUT = path.join(ROOT, 'play.pokemonshowdown.com/data');
+
+function load(relativePath) {
+	const filename = path.join(SERVER, 'dist', relativePath);
+	delete require.cache[require.resolve(filename)];
+	return require(filename);
+}
+
+function write(filename, contents) {
+	const target = path.join(OUTPUT, filename);
+	fs.mkdirSync(path.dirname(target), { recursive: true });
+	fs.writeFileSync(target, contents);
+}
+
+function writeExport(filename, exportName, value) {
+	write(filename, `exports.${exportName} = ${JSON.stringify(value)};`);
+}
+
+if (!fs.existsSync(path.join(SERVER, 'dist/sim/dex.js'))) {
+	throw new Error(`Build the standalone server first: ${SERVER}`);
+}
+
+const { Dex } = load('sim/dex');
+Dex.includeMods();
+const gen3 = Dex.mod('gen3');
+
+const Pokedex = load('data/pokedex').Pokedex;
+const FormatsData = load('data/formats-data').FormatsData;
+for (const [id, entry] of Object.entries(Pokedex)) {
+	const formatData = FormatsData[id];
+	if (!formatData) continue;
+	if (formatData.tier) entry.tier = formatData.tier;
+	if (formatData.isNonstandard) entry.isNonstandard = formatData.isNonstandard;
+}
+
+const Moves = load('data/moves').Moves;
+const Items = load('data/items').Items;
+const Abilities = load('data/abilities').Abilities;
+const TypeChart = load('data/typechart').TypeChart;
+const Aliases = load('data/aliases').Aliases;
+const Learnsets = load('data/learnsets').Learnsets;
+const Formats = load('config/formats').Formats;
+
+const searchIndex = [];
+for (const id of Object.keys(Pokedex)) searchIndex.push([id, 'pokemon']);
+for (const id of Object.keys(Moves)) searchIndex.push([id, 'move']);
+for (const id of Object.keys(Items)) searchIndex.push([id, 'item']);
+for (const id of Object.keys(Abilities)) searchIndex.push([id, 'ability']);
+for (const id of Object.keys(TypeChart)) searchIndex.push([id, 'type']);
+searchIndex.sort((a, b) => a[0].localeCompare(b[0]) || a[1].localeCompare(b[1]));
+write('search-index.js', [
+	`exports.BattleSearchIndex = ${JSON.stringify(searchIndex)};`,
+	`exports.BattleSearchIndexOffset = ${JSON.stringify(searchIndex.map(() => ''))};`,
+	'exports.BattleSearchCountIndex = {};',
+	'exports.BattleArticleTitles = {};',
+	'',
+].join('\n'));
+
+const tiers = [['header', 'Generation III Pok\u00e9mon']];
+for (const species of gen3.species.all()) {
+	if (species.exists && !species.isCosmeticForme) tiers.push(species.id);
+}
+const itemList = [
+	['header', 'Generation III items'],
+	...gen3.items.all().filter(item => item.exists).map(item => item.id),
+];
+const clientLearnsets = {};
+for (const [id, entry] of Object.entries(gen3.data.Learnsets)) {
+	if (!entry.learnset) continue;
+	clientLearnsets[id] = {};
+	for (const moveid of Object.keys(entry.learnset)) clientLearnsets[id][moveid] = '3';
+}
+const gen3Table = {
+	tiers,
+	items: itemList,
+	learnsets: clientLearnsets,
+	overrideTier: {},
+	formatSlices: { OU: 1 },
+	nonstandardMoves: [],
+};
+writeExport('teambuilder-tables.js', 'BattleTeambuilderTable', {
+	gen3: gen3Table,
+	gen3rs: gen3Table,
+	gen3frlg: gen3Table,
+});
+
+writeExport('pokedex.js', 'BattlePokedex', Pokedex);
+write('pokedex.json', JSON.stringify(Pokedex));
+writeExport('moves.js', 'BattleMovedex', Moves);
+write('moves.json', JSON.stringify(Moves));
+writeExport('items.js', 'BattleItems', Items);
+writeExport('abilities.js', 'BattleAbilities', Abilities);
+writeExport('typechart.js', 'BattleTypeChart', TypeChart);
+writeExport('aliases.js', 'BattleAliases', Aliases);
+writeExport('formats-data.js', 'BattleFormatsData', FormatsData);
+writeExport('formats.js', 'Formats', Formats);
+writeExport('learnsets.js', 'BattleLearnsets', Learnsets);
+write('learnsets.json', JSON.stringify(Learnsets));
+
+const text = Dex.loadTextData('en');
+write('text/en.js', [
+	'exports.BattleText = exports.BattleText || {};',
+	`exports.BattleText.en = ${JSON.stringify(text)};`,
+].join('\n'));
+
+console.log('Built standalone Generation III client data.');

@@ -1,0 +1,37 @@
+:root { color-scheme: dark; font: 16px/1.5 system-ui, sans-serif; background: #121923; color: #e8edf4; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+header, main { max-width: 1400px; margin: auto; padding: 20px; }
+header { padding-bottom: 0; }
+h1 { margin-bottom: 0; } header p, #save-state { color: #b3c0d1; }
+h2 { margin: 0 12px 0 0; } h3 { margin-bottom: 8px; }
+section, .member { border: 1px solid #3c4b60; border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+.member { background: #1a2533; margin-top: 18px; }
+button, select, input { font: inherit; color: inherit; background: #25364b; border: 1px solid #64768d; border-radius: 6px; padding: 8px 12px; max-width: 100%; }
+button { cursor: pointer; } button:hover:not(:disabled) { background: #38516f; }
+button:disabled { opacity: .45; cursor: default; }
+button.primary { background: #245c45; border-color: #77c49c; }
+label { display: flex; flex-direction: column; gap: 4px; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 12px 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.stats { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+.stats input { width: 100%; padding: 7px; }
+details { margin-top: 14px; } summary { cursor: pointer; margin-bottom: 10px; }
+.field { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.field article { background: #1a2533; padding: 20px; border-radius: 10px; }
+progress { width: 100%; accent-color: #78cf9a; }
+.sprite-stage { height: 170px; display: flex; align-items: end; justify-content: center; overflow: hidden; background: radial-gradient(ellipse at 50% 88%, #527557 0 28%, transparent 30%); }
+.pokemon-sprite { width: 160px; height: 160px; object-fit: contain; image-rendering: pixelated; transform-origin: bottom center; }
+.pokemon-sprite.fainted { opacity: 0; }
+#error { background: #562b32; border: 1px solid #e59ca5; padding: 16px; white-space: pre-wrap; }
+.battle-layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); gap: 20px; }
+.battle-controls { min-width: 0; }
+.battle-dialogue { min-width: 0; }
+.battle-dialogue h3 { margin-top: 0; }
+#log { height: 600px; overflow-y: auto; padding: 12px; background: #0d141d; border-radius: 6px; }
+#log p { margin: 4px 0 14px; white-space: pre-line; }
+.effects { font-size: .85rem; color: #f4d899; }
+#bag { padding: 12px; background: #1a2533; border-radius: 6px; }
+[hidden] { display: none !important; }
+@media (max-width: 600px) { .field { grid-template-columns: 1fr; } .stats { grid-template-columns: repeat(3, 1fr); } header, main { padding: 12px; } section { padding: 12px; } }
+@media (max-width: 800px) { .battle-layout { grid-template-columns: minmax(0, 1fr) 220px; gap: 10px; } .field article { padding: 10px; } }

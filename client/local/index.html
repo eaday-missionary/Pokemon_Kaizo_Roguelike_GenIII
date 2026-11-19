@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gen III Local Battles</title>
+	<link rel="stylesheet" href="/style.css">
+	<script src="/app.js" defer></script>
+</head>
+<body>
+	<header><h1>Gen III Local Battles</h1><p>Build a team. Battle the trainer AI.</p></header>
+	<main>
+		<p id="error" role="alert" hidden></p>
+		<section id="builder" aria-label="Team builder">
+			<div class="toolbar"><h2>Teams</h2><select id="teams" aria-label="Saved team"></select><button id="new-team">New team</button><button id="delete-team">Delete team</button></div>
+			<label>Team name <input id="team-name" maxlength="60"></label>
+			<p id="save-state" role="status"></p>
+			<div id="members"></div>
+			<div class="toolbar"><button id="add-member">Add Pokémon</button><button id="battle" class="primary">Battle trainer AI</button></div>
+		</section>
+		<section id="arena" aria-label="Battle" hidden>
+			<div class="toolbar"><h2 id="turn">Battle</h2><button id="back">Back to team builder</button><button id="rematch">New battle</button></div>
+			<div class="battle-layout"><div class="battle-controls">
+			<div class="field"><article id="player"></article><article id="opponent"></article></div>
+			<p id="field-status"></p>
+			<p id="battle-status" role="status"></p>
+			<div id="actions" class="toolbar"></div>
+			<details id="bag"><summary>Bag</summary><p>Practice supplies: 10 of each item, replenished for each battle. Flutes are reusable.</p><div id="bag-controls" class="grid"></div></details>
+			<h3>Switch Pokémon</h3><div id="switches" class="toolbar"></div>
+			</div><aside class="battle-dialogue"><h3>Battle dialogue</h3><div id="log" role="log" aria-live="polite"></div></aside></div>
+		</section>
+	</main>
+</body>
+</html>
