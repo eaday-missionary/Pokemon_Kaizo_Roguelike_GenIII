@@ -20,6 +20,7 @@ details { margin-top: 14px; } summary { cursor: pointer; margin-bottom: 10px; }
 .field { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .field article { background: #1a2533; padding: 20px; border-radius: 10px; }
 progress { width: 100%; accent-color: #78cf9a; }
+.xp-indicator { font-size: 12px; color: #b3c0d1; margin-top: -12px; }
 .sprite-stage { height: 170px; display: flex; align-items: end; justify-content: center; overflow: hidden; background: radial-gradient(ellipse at 50% 88%, #527557 0 28%, transparent 30%); }
 .pokemon-sprite { width: 160px; height: 160px; object-fit: contain; image-rendering: pixelated; transform-origin: bottom center; }
 .pokemon-sprite.fainted { opacity: 0; }
@@ -35,3 +36,50 @@ progress { width: 100%; accent-color: #78cf9a; }
 [hidden] { display: none !important; }
 @media (max-width: 600px) { .field { grid-template-columns: 1fr; } .stats { grid-template-columns: repeat(3, 1fr); } header, main { padding: 12px; } section { padding: 12px; } }
 @media (max-width: 800px) { .battle-layout { grid-template-columns: minmax(0, 1fr) 220px; gap: 10px; } .field article { padding: 10px; } }
+
+/* Keep six readable stat cells inside the narrow battle card. */
+.field .stats { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+.field > article { min-width: 0; }
+.field section { padding: 10px; }
+.team-indicators { display: flex; gap: 5px; padding: 8px 0; }
+.team-ball { position: relative; width: 16px; height: 16px; border: 2px solid #26313d; border-radius: 50%; background: linear-gradient(#e65750 0 43%, #26313d 43% 57%, #fff5dd 57%); }
+.team-ball::after { content: ''; position: absolute; width: 5px; height: 5px; border: 1px solid #26313d; border-radius: 50%; background: #fff5dd; left: 3.5px; top: 3.5px; }
+.team-ball.status { background: linear-gradient(#e6bb55 0 43%, #26313d 43% 57%, #fff5dd 57%); }
+.team-ball.fainted { filter: grayscale(1); opacity: .55; }
+.team-ball.empty { background: #596375; }
+.team-ball.empty::after { display: none; }
+@media (max-width: 600px) { .battle-layout { grid-template-columns: 1fr; } }
+
+.sprite-stage { position: relative; isolation: isolate; }
+.sprite-stage .pokemon-sprite { position: relative; z-index: 1; }
+.substitute-sprite { width: 128px; height: 128px; }
+.weather-overlay { position: absolute; inset: -40px; z-index: 3; pointer-events: none; }
+.weather-raindance { background-color: #283c60; }
+.weather-overlay.raindance { opacity: .5; background: repeating-linear-gradient(110deg, transparent 0 24px, #9dcffa 25px 27px, transparent 28px 48px); animation: rain-fall .55s linear infinite; }
+.weather-sandstorm { background-color: #796335; }
+.weather-overlay.sandstorm { background-image: radial-gradient(#eac786 1px, transparent 2px), radial-gradient(#c6a16a 2px, transparent 3px); background-size: 19px 27px, 43px 37px; animation: sand-blow 1s linear infinite; opacity: .65; }
+.weather-hail { background-color: #536777; }
+.weather-overlay.hail { background-image: radial-gradient(#eefaff 2px, transparent 3px); background-size: 31px 29px; animation: hail-fall 1.3s linear infinite; opacity: .8; }
+.weather-sunnyday { background-color: #7b672d; }
+.weather-overlay.sunnyday { background: repeating-conic-gradient(from 20deg at 85% 0, #ffdc7944 0deg 12deg, transparent 12deg 25deg); animation: sun-glow 2s ease-in-out infinite alternate; }
+.hazard-spikes { position: absolute; z-index: 2; bottom: 5px; left: 8%; right: 8%; display: flex; justify-content: space-evenly; flex-wrap: wrap; pointer-events: none; }
+.hazard-spikes img { width: 24px; height: 24px; image-rendering: pixelated; }
+.side-screen { position: absolute; inset: 20% 12% 8%; z-index: 2; border: 2px solid #aad9ffaa; border-radius: 12%; background: #9cd9ff22; pointer-events: none; }
+.side-screen.lightscreen { border-color: #ffdc90aa; background: #ffdc9022; }
+.side-screen.safeguard { border-color: #9fffb8aa; background: #9fffb822; }
+.side-screen.mist { border: 0; background: linear-gradient(transparent, #e5efff66); }
+@keyframes rain-fall { to { transform: translate(-20px, 40px); } }
+@keyframes sand-blow { to { background-position: -76px 27px, -86px 37px; } }
+@keyframes hail-fall { to { background-position: -31px 58px; } }
+@keyframes sun-glow { from { opacity: .4; } to { opacity: .9; } }
+@media (prefers-reduced-motion: reduce) { .weather-overlay { animation: none !important; } }
+
+#actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+#actions button { min-height:100px; padding:14px; position:relative; }
+.move-power { display:block; margin-top:8px; }
+.variable-power { color:#1875e5; }
+.effectiveness { display:inline-block; font-size:24px; font-weight:bold; margin-left:12px; }
+.effective { color:#16813b; } .resisted { color:#cf3030; } .immune { color:#9345c4; }
+#explanations { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin-top:18px; }
+#explanations details { padding:12px; border:1px solid #71849b; border-radius:6px; }
+#explanations p { white-space:pre-wrap; }

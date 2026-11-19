@@ -5,7 +5,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
   {
     name: '[Gen 3] Roguelike',
     mod: 'gen3local',
-    ruleset: ['Obtainable'],
+    ruleset: ['Obtainable Abilities', 'Obtainable Formes', 'EV Limit = Auto'],
     searchShow: true,
     challengeShow: true,
     tournamentShow: true,

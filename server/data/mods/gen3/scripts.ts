@@ -358,6 +358,12 @@ export const Scripts: ModdedBattleScriptsData = {
         }
       }
       if (move.ohko) {
+        // FireRed Cmd_tryKO checks Sturdy before the OHKO accuracy/level roll.
+        // Keep type immunity, invulnerability, and Protect ahead of the ability.
+        if (!naturalImmunity && !target.volatiles['protect'] && target.hasAbility('sturdy')) {
+          this.battle.add('-immune', target, '[from] ability: Sturdy');
+          return false;
+        }
         if (!target.isSemiInvulnerable()) {
           accuracy = 30;
           if (pokemon.level >= target.level && (move.ohko === true || !target.hasType(move.ohko))) {

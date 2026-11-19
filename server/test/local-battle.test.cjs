@@ -90,3 +90,20 @@ test('local HTTP interface validates teams/actions and serves only the local app
 		await new Promise(resolve => server.close(resolve));
 	}
 });
+
+
+test('custom opponents accept independent team size and levels with opponent total stats', () => {
+ const b = createBattle(structuredClone(BOT_TEAM.slice(0, 1)), [{ species: 'Bulbasaur', level: 5 }, { species: 'Swampert', level: 20 }]);
+ try {
+  assert.equal(b.p2.pokemon.length, 2);
+  assert.deepEqual(b.p2.pokemon.map(p => p.level), [5, 20]);
+  assert.ok(b.p2.pokemon.every(p => p.moveSlots.length > 0));
+  const state = snapshot(b);
+  assert.equal(state.opponentTeam.length, 2);
+  assert.equal(state.opponent[0].stats.hp, state.opponent[0].maxhp);
+  b.p2.pokemon[1].fainted = true;
+  assert.equal(snapshot(b).opponentTeam[1].fainted, true);
+ } finally { b.destroy(); }
+ assert.throws(() => createBattle(structuredClone(BOT_TEAM.slice(0, 1)), []));
+ assert.throws(() => createBattle(structuredClone(BOT_TEAM.slice(0, 1)), [{ species: 'Garchomp', level: 5 }]));
+});

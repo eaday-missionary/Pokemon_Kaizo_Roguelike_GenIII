@@ -16,6 +16,7 @@
 			<label>Team name <input id="team-name" maxlength="60"></label>
 			<p id="save-state" role="status"></p>
 			<div id="members"></div>
+			<details><summary>Opponent team</summary><div id="opponent-members"></div></details>
 			<div class="toolbar"><button id="add-member">Add Pokémon</button><button id="battle" class="primary">Battle trainer AI</button></div>
 		</section>
 		<section id="arena" aria-label="Battle" hidden>
@@ -28,6 +29,7 @@
 			<details id="bag"><summary>Bag</summary><p>Practice supplies: 10 of each item, replenished for each battle. Flutes are reusable.</p><div id="bag-controls" class="grid"></div></details>
 			<h3>Switch Pokémon</h3><div id="switches" class="toolbar"></div>
 			</div><aside class="battle-dialogue"><h3>Battle dialogue</h3><div id="log" role="log" aria-live="polite"></div></aside></div>
+            <div id="explanations" aria-label="Move and ability descriptions"></div>
 		</section>
 	</main>
 </body>

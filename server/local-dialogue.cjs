@@ -54,7 +54,7 @@ function renderDialogue(log) {
 	const output = [];
 	let attacker = '', defender = '', currentMove = '', lastWeather = '';
 	const knownAbilities = {}, activeNames = {};
-	const hp = {}, consumedItems = {};
+	const hp = {}, consumedItems = {}, trappingMoves = {};
 	function name(actor, prefix = true) {
 		const plain = upper(String(actor || '').replace(/^p[12][a-z]?: /, ''));
 		return `${prefix && String(actor).startsWith('p2') ? 'Foe ' : ''}${plain}`;
@@ -64,7 +64,7 @@ function renderDialogue(log) {
 		const all = [value, amount, ...tags];
 		const from = all.find(s => s.startsWith('[from] '))?.slice(7) || '';
 		const owner = all.find(s => s.startsWith('[of] '))?.slice(5) || actor;
-		if (all.includes('[silent]') || all.includes('[still]') && command === 'move') continue;
+		if (all.includes('[silent]')) continue;
 		if (from.startsWith('ability: ')) knownAbilities[owner.slice(0, 2)] = from.slice(9);
 		let ability = from.startsWith('ability: ') ? from.slice(9) : knownAbilities[actor.slice(0, 2)] || '';
 		let buff1 = amount || value, buff2 = '', item = from.startsWith('item: ') ? from.slice(6) : '';
@@ -121,11 +121,11 @@ function renderDialogue(log) {
 		case '-damage':
 			hp[actor] = Number(value.split('/')[0].split(' ')[0]);
 			key = ({ brn: 'PkmnHurtByBurn', psn: 'PkmnHurtByPoison', tox: 'PkmnHurtByPoison',
-				confusion: 'ItHurtConfusion', recoil: 'PkmnHitWithRecoil', 'move: Leech Seed': 'PkmnSappedByLeechSeed',
+				confusion: 'ItHurtConfusion', recoil: 'PkmnHitWithRecoil', Recoil: 'PkmnHitWithRecoil', 'move: Leech Seed': 'PkmnSappedByLeechSeed',
 				'move: Curse': 'PkmnAfflictedByCurse', 'move: Nightmare': 'PkmnLockedInNightmare',
 				Sandstorm: 'PkmnBuffetedBySandstorm', Hail: 'PkmnPeltedByHail', 'Spikes': 'PkmnHurtBySpikes',
 				'ability: Liquid Ooze': 'ItSuckedLiquidOoze', 'ability: Rough Skin': 'PkmnHurtsWith' })[from] || '';
-			if (from === 'partiallytrapped') { key = 'PkmnHurtBy'; buff1 = upper(value); }
+			if (from === 'partiallytrapped') { key = 'PkmnHurtBy'; buff1 = moveName(trappingMoves[actor] || 'Bind'); }
 			break;
 		case '-heal':
 			restoredHP = Math.max(0, Number(value.split('/')[0]) - (hp[actor] ?? Number(value.split('/')[0])));
@@ -149,7 +149,10 @@ function renderDialogue(log) {
 		case '-setboost': key = 'PkmnCutHPMaxedAttack'; break;
 		case '-clearallboost': key = 'StatChangesGone'; break;
 		case '-copyboost': key = 'PkmnCopiedStatChanges'; def = value; break;
-		case '-clearnegativeboost': key = 'PkmnStatusNormal'; break;
+		case '-clearnegativeboost':
+			item ||= consumedItems[actor] || 'White Herb';
+			direct = `${name(actor)}'s ${itemName(item)} restored its lowered stats!`;
+			delete consumedItems[actor]; break;
 		case '-start': case '-singleturn': case '-singlemove': case '-sidestart': case '-fieldstart': {
 			const effect = id(command === '-fieldstart' ? actor : value);
 			key = starts[effect] || activations[effect] || '';
@@ -171,20 +174,26 @@ function renderDialogue(log) {
 			key = ends[id(value)] || ''; buff1 = upper(value.replace('move: ', ''));
 			if (command === '-sideend' && id(value) === 'spikes' && id(from) === 'rapidspin') { key = 'PkmnBlewAwaySpikes'; atk = owner; }
 			if (id(value) === 'futuresight' || id(value) === 'doomdesire') { key = 'PkmnTookAttack'; buff1 = moveName(value); }
+			if (id(value) === 'partiallytrapped') { buff1 = moveName(trappingMoves[actor] || 'Bind'); delete trappingMoves[actor]; }
 			if (id(value) === 'confusion' && consumedItems[actor]) { key = 'PkmnsItemSnappedOut'; item = consumedItems[actor]; delete consumedItems[actor]; }
 			break;
 		case '-activate':
 			key = activations[id(value)] || '';
+			if (['bind', 'wrap', 'clamp', 'firespin', 'whirlpool', 'sandtomb'].includes(id(value))) trappingMoves[actor] = value;
 			if (id(value) === 'attract') source = owner;
 			if (['lockon', 'mindreader'].includes(id(value))) def = owner;
 			if (id(value) === 'mimic') { key = currentMove === 'SKETCH' ? 'PkmnSketchedMove' : 'PkmnLearnedMove2'; buff1 = moveName(amount); }
 			if (id(value) === 'spite') { def = owner; buff1 = moveName(amount); buff2 = tags[0]; }
 			if (id(value) === 'skillswap') def = owner;
+			if (id(value) === 'leppaberry') { key = 'PkmnsItemRestoredPP'; item = 'Leppa Berry'; buff1 = moveName(amount); delete consumedItems[actor]; }
+			if (id(value) === 'focusband') { direct = `${name(actor)} hung on using its ${itemName('Focus Band')}!`; }
+			if (id(value) === 'quickclaw') { direct = `${name(actor)}'s ${itemName('Quick Claw')} let it move first!`; }
 			if (id(value) === 'brickbreak') key = 'TheWallShattered';
 			if (id(value) === 'protect') key = ''; // Protection already announced by -singleturn.
 			if (value.startsWith('ability: ')) { ability = value.slice(9); key = ({ sturdy: 'PkmnProtectedBy', soundproof: 'PkmnsXBlocksY', suctioncups: 'PkmnAnchorsItselfWith', clearbody: 'PkmnPreventsStatLossWith', hypercutter: 'PkmnsXPreventsYLoss', whitesmoke: 'PkmnPreventsStatLossWith', damp: 'PkmnPreventsUsage', insomnia: 'PkmnStayedAwakeUsing', vitalspirit: 'PkmnStayedAwakeUsing', oblivious: 'PkmnPreventsRomanceWith', limber: 'PkmnPreventsParalysisWith', immunity: 'PkmnPreventsPoisoningWith', owntempo: 'PkmnPreventsConfusionWith', waterveil: 'PkmnsXPreventsBurns', flashfire: 'PkmnRaisedFirePowerWith' })[id(value)] || ''; }
 			break;
 		case '-prepare': key = prepare[id(value)] || ''; break;
+		case '-mustrecharge': break;
 		case '-weather': {
 			if (actor === 'none') { key = weather[lastWeather]?.[2]; lastWeather = ''; }
 			else { key = weather[actor]?.[all.includes('[upkeep]') ? 1 : 0]; lastWeather = actor; }
@@ -231,8 +240,17 @@ function renderDialogue(log) {
 		}
 		for (const n of [1, 2, 3]) replacements[`B_ATK_PREFIX${n}`] = actor.startsWith('p2') ? "The foe" : 'Your team';
 		const template = key ? strings[key] : '';
-		const text = direct || template?.replace(/\{(\w+)\}/g, (_, placeholder) => replacements[placeholder] ?? '').trim();
-		if (text) output.push({ line: lineIndex, text });
+		let text = direct || template?.replace(/\{(\w+)\}/g, (_, placeholder) => replacements[placeholder] ?? '').trim();
+		// Preserve meaningful effects even when FireRed has no dedicated template.
+  if (!text && !['-mustrecharge', '-hint', '-anim', '-waiting', '-center', '-combine', '-swapsideconditions'].includes(command)) {
+   const effect = value.replace(/^(move|ability|item): /, '');
+   if (command === '-ability') text = `${name(actor)}'s ${abilityName(value)} activated!`;
+   else if (command === '-activate') text = `${name(actor)}'s ${value.startsWith('ability: ') ? abilityName(effect) : value.startsWith('item: ') ? itemName(effect) : moveName(effect)} activated!`;
+   else if (['-start', '-singleturn', '-singlemove'].includes(command)) text = `${name(actor)}: ${effect}${amount && !amount.startsWith('[') ? ' ' + amount : ''}!`;
+   else if (command === '-end') text = `${name(actor)}'s ${effect} ended!`;
+   else if (command === '-enditem' && !all.includes('[eat]')) text = `${name(actor)} used its ${itemName(value)}!`;
+  }
+  if (text) output.push({ line: lineIndex, text });
 	}
 	return output;
 }

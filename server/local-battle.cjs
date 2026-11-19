@@ -9,6 +9,11 @@ const { Battle, Dex, TeamValidator } = require('./dist/sim');
 const { installBag, bagSnapshot, chooseBag } = require('./local-bag.cjs');
 const { renderDialogue } = require('./local-dialogue.cjs');
 
+const { installGrowth, totals, xpProgress } = require('./local-growth.cjs');
+
+const descriptions = require('./local-data/firered-descriptions.json');
+const { moveDisplay } = require('./local-move-display.cjs');
+
 const FORMAT = 'gen3roguelike';
 const dex = Dex.mod('gen3');
 const webRoot = path.resolve(__dirname, '../client/local');
@@ -30,12 +35,15 @@ function catalogue() {
 		return [...moves].sort();
 	};
 	return {
+		descriptions,
 		species: dex.species.all().filter(s => s.exists && !s.battleOnly).map(s => ({
-			name: s.name, abilities: Object.values(s.abilities), types: s.types, moves: learnableMoves(s),
+			name: s.name, abilities: Object.values(s.abilities), types: s.types, baseStats: s.baseStats, moves: learnableMoves(s),
 		})),
 		moves: [...new Map(dex.moves.all().filter(m => m.exists && m.num > 0 && m.num <= 354).map(m => [m.num, m.name])).values()],
 		items: dex.items.all().filter(i => i.exists).map(i => i.name),
 		natures: dex.natures.all().map(n => n.name),
+		natureDetails: Object.fromEntries(dex.natures.all().map(n => [n.name, { plus: n.plus, minus: n.minus }])),
+		moveDetails: Object.fromEntries(dex.moves.all().filter(m => m.exists).map(m => [m.name, { category: m.category, pp: m.pp, accuracy: m.accuracy, type: m.type }])),
 	};
 }
 
@@ -54,7 +62,7 @@ function botChoice(battle) {
 	const user = side.active[0];
 	const target = battle.p1.active[0];
 	const choices = request.active[0].moves.map((entry, index) => {
-		if (entry.disabled || !entry.pp) return { index, score: -Infinity };
+		if (entry.disabled || entry.pp === 0) return { index, score: -Infinity };
 		const move = dex.moves.get(entry.id);
 		let score = 12;
 		if (move.category !== 'Status') {
@@ -83,27 +91,52 @@ function advanceBot(battle) {
 	}
 }
 
-function createBattle(team) {
+function opponentTeam(entries) {
+ if (!Array.isArray(entries) || !entries.length || entries.length > 6) throw new Error('Choose one to six opponent Pokemon.');
+ return entries.map(entry => {
+  const species = dex.species.get(entry.species);
+  if (!species.exists || species.battleOnly || !Number.isInteger(entry.level) || entry.level < 1 || entry.level > 100) throw new Error('Invalid opponent species or level.');
+  const preset = BOT_TEAM.find(p => p.species === species.name);
+  if (preset) return { ...preset, moves: [...preset.moves], level: entry.level };
+  const set = { species: species.name, ability: species.abilities[0], level: 100, moves: [] };
+  const validator = new TeamValidator(FORMAT), candidates = new Set();
+  for (let s = species; s?.exists; s = s.prevo ? dex.species.get(s.prevo) : null) {
+   for (const move of Object.keys(dex.data.Learnsets[s.id]?.learnset || {})) candidates.add(move);
+  }
+  if (species.id === 'smeargle') candidates.add('tackle');
+  const legal = [...candidates].filter(move => !validator.validateTeam([{ ...set, moves: [move] }]));
+  legal.sort((a, b) => dex.moves.get(b).basePower - dex.moves.get(a).basePower);
+  for (const move of legal) {
+   if (!validator.validateTeam([{ ...set, moves: [...set.moves, move] }])) set.moves.push(move);
+   if (set.moves.length === 4) break;
+  }
+  if (!set.moves.length) throw new Error('Opponent has no legal moves.');
+  set.level = entry.level;
+  return set;
+ });
+}
+function createBattle(team, opponent) {
 	if (!Array.isArray(team) || team.length < 1 || team.length > 6) throw new Error('Choose one to six Pokémon.');
 	const errors = new TeamValidator(FORMAT).validateTeam(team);
 	if (errors?.length) throw new Error(errors.join('\n'));
 	const battle = new Battle({
 		formatid: FORMAT,
 		p1: { name: 'Player', team },
-		p2: { name: 'Trainer AI', team: BOT_TEAM.slice(0, team.length).map(p => ({ ...p, moves: [...p.moves] })) },
+		p2: { name: 'Trainer AI', team: opponent ? opponentTeam(opponent) : BOT_TEAM.slice(0, team.length).map(p => ({ ...p, moves: [...p.moves] })) },
 	});
 	installBag(battle);
+	installGrowth(battle);
 	advanceBot(battle);
 	return battle;
 }
 
 function snapshot(battle) {
 	const effects = states => Object.entries(states).map(([id, state]) => ({
-		id, name: battle.dex.conditions.get(id).name || id, duration: state.duration,
+		id, name: battle.dex.conditions.get(id).name || id, duration: state.duration, layers: state.layers,
 	}));
-	const pokemon = p => ({ name: p.species.name, sprite: p.species.id, shiny: p.shiny, hp: p.hp, maxhp: p.maxhp,
+	const pokemon = p => ({ ability: battle.dex.abilities.get(p.ability).name, level: p.level, stats: totals(p), ...(p.side === battle.p1 ? { baseStats: p.baseSpecies.baseStats, evs: { ...p.set.evs }, experience: p.experience, xpProgress: xpProgress(p) } : {}), name: p.species.name, sprite: p.species.id, shiny: p.shiny, hp: p.hp, maxhp: p.maxhp,
 		status: p.status, fainted: p.fainted, effects: effects(p.volatiles), boosts: { ...p.boosts },
-		moves: p.moveSlots.map(m => ({ name: m.move, pp: m.pp, maxpp: m.maxpp })),
+		moves: p.moveSlots.map(m => ({ ...moveDisplay(battle, p, p.side.foe.active[0], m.id), id: m.id, name: m.move, category: battle.dex.moves.get(m.id).category, accuracy: battle.dex.moves.get(m.id).accuracy, pp: m.pp, maxpp: m.maxpp })),
 	});
 	// Both teams are local: retain exact HP rather than public rounded HP bars.
 	const log = [];
@@ -119,6 +152,7 @@ function snapshot(battle) {
 	return {
 		turn: battle.turn, ended: battle.ended, winner: battle.winner,
 		player: battle.p1.active.map(pokemon), opponent: battle.p2.active.map(pokemon),
+		opponentTeam: battle.p2.pokemon.map(p => ({ fainted: p.fainted, status: p.status })),
 		team: battle.p1.pokemon.map(pokemon), request: battle.p1.activeRequest, log, dialogue: renderDialogue(log),
 		bag: bagSnapshot(battle), weather: battle.field.weather,
 		weatherDuration: battle.field.weatherState.duration,
@@ -150,8 +184,8 @@ function createServer() {
 			if (!/^127\.0\.0\.1:\d+$/.test(req.headers.host || '')) return respond(403, { error: 'Open the simulator using 127.0.0.1.' });
 			if (req.method === 'GET' && req.url === '/api/data') return respond(200, catalogue());
 			if (req.method === 'POST' && req.url === '/api/battle') {
-				const { team, previous } = await readJSON(req);
-				const battle = createBattle(team);
+				const { team, opponent, previous } = await readJSON(req);
+				const battle = createBattle(team, opponent);
 				if (battles.has(previous)) { battles.get(previous).destroy(); battles.delete(previous); }
 				if (battles.size >= 50) {
 					const oldest = battles.keys().next().value;
@@ -177,6 +211,10 @@ function createServer() {
 			const files = { '/': ['index.html', 'text/html'], '/app.js': ['app.js', 'text/javascript'], '/style.css': ['style.css', 'text/css'] };
 			const file = req.method === 'GET' && files[req.url];
 			// Only known sprite directories and plain species IDs are exposed.
+			if (req.method === 'GET' && ['/effects/substitute.png', '/effects/substitute-back.png', '/effects/spikes.png'].includes(req.url)) {
+				res.writeHead(200, { 'Content-Type': 'image/png', 'Cache-Control': 'public, max-age=86400' });
+				return res.end(fs.readFileSync(path.join(webRoot, req.url.slice(1))));
+			}
 			if (req.method === 'GET' && /^\/sprites\/gen3(?:-back)?(?:-shiny)?\/[a-z0-9]+\.png$/.test(req.url)) {
 				const spritePath = path.join(webRoot, req.url.slice(1));
 				if (!fs.existsSync(spritePath)) return respond(404, { error: 'Sprite not found.' });

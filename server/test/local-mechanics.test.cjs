@@ -8,6 +8,21 @@ const { renderDialogue, starts, ends, activations, prepare } = require('../local
 const text = require('../local-data/firered-text.json');
 const dex = Dex.mod('gen3local');
 const mon = (extra = {}) => ({ species: 'Mew', ability: 'Synchronize', level: 100, nature: 'Hardy', moves: ['Splash'], ...extra });
+test('local teams allow arbitrary Gen III moves and levels regardless of evolution or learnset', () => {
+	const validator = new TeamValidator('gen3roguelike');
+	const gengar = { species: 'Gengar', ability: 'Levitate', level: 100, moves: ['Psywave', 'Will-O-Wisp'] };
+	assert.equal(validator.validateTeam([structuredClone(gengar)]), null);
+	assert.equal(validator.validateTeam([{ ...gengar, level: 1, moves: ['Sacred Fire', 'Psywave', 'Will-O-Wisp', 'Blast Burn'] }]), null);
+	for (const level of [1, 5, 100]) {
+		const battle = createBattle([{ species: 'Dragonite', ability: 'Inner Focus', level, moves: ['Sacred Fire', 'Blast Burn', 'Surf', 'Spore'] }], [{ species: 'Charizard', level: 1 }]);
+		try {
+			assert.equal(battle.p1.active[0].level, level);
+			assert.equal(battle.p2.active[0].level, 1);
+			assert.deepEqual(battle.p1.active[0].moveSlots.map(m => m.id), ['sacredfire', 'blastburn', 'surf', 'spore']);
+		} finally { battle.destroy(); }
+	}
+	assert.ok(validator.validateTeam([{ ...gengar, moves: ['Shadow Ball', 'Dark Pulse'] }]));
+});
 function fixture(p1 = {}, p2 = {}) {
 	return new Battle({ formatid: 'gen3roguelike', seed: [1, 2, 3, 4], p1: { team: [mon({ gender: 'M', ...p1 }), mon()] }, p2: { team: [mon({ gender: 'F', ...p2 }), mon()] } });
 }
@@ -348,4 +363,145 @@ test('FireRed dialogue maps status, multihits, stats, abilities, Leech Seed and 
 	]).map(e => e.text).join('\n');
 	for (const expected of ['BULLET SEED!', 'Hit 3 time(s)!', 'was burned!', 'hurt\nby its burn!', 'sharply rose!', 'was seeded!', 'fell to 2!', 'DRIZZLE', 'Rain continues to fall.', 'The rain stopped.']) assert.ok(dialogue.includes(expected), expected);
 	assert.doesNotMatch(dialogue, /\{B_|undefined/);
+});
+
+
+test('charging, recharge, rampage and Bide turns progress with correct PP and dialogue', () => {
+ for (const move of ['Fly', 'Dig', 'Dive', 'Solar Beam', 'Skull Bash', 'Sky Attack', 'Razor Wind', 'Bounce', 'Hyper Beam', 'Outrage', 'Rollout', 'Bide']) {
+  const b = fixture({ moves: [move] }, { moves: ['Splash'] });
+  try {
+   const pp = b.p1.active[0].moveSlots[0].pp;
+   b.makeChoices('move 1', 'move 1');
+   if (b.ended) continue;
+   const request = b.p1.activeRequest.active[0];
+   assert.equal(request.moves.length, 1, move);
+   assert.equal(request.moves[0].pp, undefined, `${move} provides a forced turn without PP`);
+   b.makeChoices('move 1', 'move 1');
+   assert.ok(b.turn >= 3, move);
+   // Repeated rollout uses PP on each turn in Gen III; other forced continuations do not.
+   if (move !== 'Rollout') assert.equal(b.p1.active[0].moveSlots[0].pp, pp - 1, move);
+   const dialogue = renderDialogue(snapshot(b).log).map(e => e.text).join(' ');
+   assert.ok(dialogue.includes(text.moves[b.dex.moves.get(move).num]), move);
+   if (move === 'Hyper Beam') assert.match(dialogue, /recharge/i);
+   if (move === 'Fly') assert.match(dialogue, /flew[\s\S]*high/i);
+  } finally { b.destroy(); }
+ }
+});
+
+test('failed moves announce the move before the failure and fallback effects identify their source', () => {
+ const messages = renderDialogue(['|move|p1a: Mew|Recover|p1a: Mew|[still]', '|-fail|p1a: Mew|heal', '|-activate|p1a: Mew|item: Focus Band', '|-ability|p2a: Mew|Pressure']);
+ assert.match(messages[0].text, /RECOVER/);
+ assert.match(messages[1].text, /full/i);
+ assert.match(messages[2].text, /FOCUS BAND/);
+ assert.match(messages[3].text, /PRESSURE/);
+});
+
+
+test('all Gen III recoil moves announce recoil for either side, including Struggle', () => {
+ for (const move of dex.moves.all().filter(m => m.recoil || m.struggleRecoil)) {
+  for (const side of ['p1', 'p2']) {
+   const b = fixture(side === 'p1' ? { moves: [move.name] } : {}, side === 'p2' ? { moves: [move.name] } : {});
+   try {
+    b.makeChoices('move 1', 'move 1');
+    const messages = renderDialogue(snapshot(b).log).map(e => e.text);
+    assert.ok(messages.some(t => t === `${side === 'p2' ? 'Foe ' : ''}MEW is hit\nwith recoil!`), `${side}: ${move.name}`);
+   } finally { b.destroy(); }
+  }
+ }
+});
+
+test('FireRed Sturdy blocks OHKO moves, including below full HP, but not ordinary lethal attacks', () => {
+ for (const move of ['Fissure', 'Guillotine', 'Horn Drill', 'Sheer Cold']) {
+  const b = fixture({ moves: [move] }, { ability: 'Sturdy', moves: ['Splash'] });
+  try {
+   const target = b.p2.active[0]; target.hp = Math.floor(target.maxhp / 2);
+   const hp = target.hp;
+   b.makeChoices('move 1', 'move 1');
+   assert.equal(target.hp, hp, move);
+   assert.match(renderDialogue(snapshot(b).log).map(e => e.text).join(' '), /STURDY/);
+  } finally { b.destroy(); }
+ }
+ const b = fixture({ moves: ['Tackle'] }, { ability: 'Sturdy' });
+ try { b.p2.active[0].hp = 1; b.makeChoices('move 1', 'move 1'); assert.equal(b.p2.pokemon[0].hp, 0); }
+ finally { b.destroy(); }
+});
+
+test('Endure survives lethal attacks and multihits at 1 HP for one turn, but not residual damage', () => {
+ for (const move of ['Tackle', 'Double Slap', 'Fissure']) {
+  const b = fixture({ moves: ['Endure', 'Splash'] }, { moves: [move] });
+  try {
+   const user = b.p1.active[0]; user.hp = 1;
+   // Force accuracy so this verifies survival rather than a miss.
+   const old = b.randomChance; b.randomChance = () => true;
+   b.makeChoices('move 1', 'move 1'); b.randomChance = old;
+   assert.equal(user.hp, 1, move);
+   const dialogue = renderDialogue(snapshot(b).log).map(e => e.text).join(' ');
+   assert.match(dialogue, /braced/i); assert.match(dialogue, /endured/i);
+   b.randomChance = () => true; b.makeChoices('move 2', 'move 1');
+   assert.equal(user.hp, 0, `${move}: Endure expires`);
+  } finally { b.destroy(); }
+ }
+ const b = fixture({ moves: ['Endure'] }, { moves: ['Splash'] });
+ try {
+  b.p1.active[0].hp = 1; b.p1.active[0].setStatus('psn');
+  b.makeChoices('move 1', 'move 1');
+  assert.equal(b.p1.pokemon[0].hp, 0);
+ } finally { b.destroy(); }
+});
+
+test('move snapshots expose accuracy and stage snapshots retain Spikes layers and Substitute', () => {
+ const b = fixture({ moves: ['Substitute', 'Thunder'] }, { moves: ['Spikes'] });
+ try {
+  b.makeChoices('move 1', 'move 1');
+  const state = snapshot(b);
+  assert.equal(state.player[0].moves[0].accuracy, true);
+  assert.equal(state.player[0].moves[1].accuracy, 70);
+  assert.ok(state.player[0].effects.some(e => e.id === 'substitute'));
+  assert.equal(state.playerConditions.find(e => e.id === 'spikes').layers, 1);
+ } finally { b.destroy(); }
+});
+
+
+test('bag cannot interrupt charging, recharge, or locked multi-turn moves', () => {
+ for (const move of ['Fly', 'Dig', 'Solar Beam', 'Hyper Beam', 'Outrage', 'Bide']) {
+  const b = fixture({moves:[move]});
+  try {
+   installBag(b); b.makeChoices('move 1', 'move 1');
+   assert.throws(() => chooseBag(b, 'potion', 0), /Finish the current move/, move);
+   assert.equal(bagSnapshot(b).find(i => i.id === 'potion').count, 10);
+   assert.equal(b.choose('p1', 'move 1'), true);
+  } finally { b.destroy(); }
+ }
+});
+
+test('move previews track HP, friendship, typing and never mutate move state', () => {
+ const {moveDisplay} = require('../local-move-display.cjs');
+ const b = fixture();
+ try {
+  const p = b.p1.active[0], t = b.p2.active[0];
+  p.hp = 1;
+  assert.equal(moveDisplay(b,p,t,'flail').power,200);
+  assert.equal(moveDisplay(b,p,t,'eruption').power,1);
+  t.setStatus('par');
+  assert.equal(moveDisplay(b,p,t,'smellingsalts').power,120);
+  p.happiness = 255;
+  assert.equal(moveDisplay(b,p,t,'return').power,102);
+  t.setType(['Grass','Steel']);
+  assert.equal(moveDisplay(b,p,t,'flamethrower').effectiveness,4);
+  t.setType(['Water','Dragon']);
+  assert.equal(moveDisplay(b,p,t,'flamethrower').effectiveness,0.25);
+  t.setType(['Ground']);
+  assert.equal(moveDisplay(b,p,t,'thunderbolt').effectiveness,0);
+  const before = JSON.stringify(p.volatiles), seed = b.prng.getSeed();
+  for (const m of b.dex.moves.all().filter(m => m.exists)) moveDisplay(b,p,t,m.id);
+  assert.equal(JSON.stringify(p.volatiles),before);
+  assert.deepEqual(b.prng.getSeed(),seed);
+ } finally { b.destroy(); }
+});
+
+test('FireRed descriptions cover every Gen III move and ability', () => {
+ const descriptions = require('../local-data/firered-descriptions.json');
+ for (const m of dex.moves.all().filter(m => m.exists && m.num > 0 && m.num <= 354)) assert.ok(descriptions.moves[m.id], m.id);
+ for (const a of dex.abilities.all().filter(a => a.exists)) assert.ok(descriptions.abilities[a.id], a.id);
+ assert.equal(descriptions.abilities.sturdy, 'Negates 1-hit KO attacks.');
 });

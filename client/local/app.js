@@ -71,6 +71,20 @@ function button(parent, label, action, disabled = false) {
 	node.addEventListener('click', action);
 	return node;
 }
+const categorySymbol = category => ({ Physical: '\u2739 Physical', Special: '\u25ce Special', Status: '\u25c7 Status' }[category] || category);
+function statPanel(parent, title, values) {
+ const panel = element('section', undefined, parent);
+ element('h4', title, panel);
+ const row = element('div', undefined, panel); row.className = 'stats';
+ stats.forEach((key, i) => element('div', `${statNames[i]}: ${values[key]}`, row));
+}
+function builderStats(pokemon, species) {
+ const level = pokemon.level || 100, nature = data.natureDetails[pokemon.nature || 'Hardy'] || {};
+ return Object.fromEntries(stats.map(key => {
+  const value = Math.floor((2 * species.baseStats[key] + (pokemon.ivs?.[key] ?? 31) + Math.floor((pokemon.evs?.[key] ?? 0) / 4)) * level / 100);
+  return [key, key === 'hp' ? (species.name === 'Shedinja' ? 1 : value + level + 10) : Math.floor((value + 5) * (nature.plus === key ? 110 : nature.minus === key ? 90 : 100) / 100)];
+ }));
+}
 function renderBuilder() {
 	$('teams').replaceChildren();
 	teams.forEach((team, index) => {
@@ -93,11 +107,14 @@ function renderBuilder() {
 		});
 		selectField(grid, 'Ability', species.abilities, pokemon.ability, value => { pokemon.ability = value; });
 		selectField(grid, 'Item', ['', ...data.items], pokemon.item || '', value => { pokemon.item = value; });
-		selectField(grid, 'Nature', data.natures, pokemon.nature || 'Hardy', value => { pokemon.nature = value; });
-		numberField(grid, 'Level', pokemon.level || 100, 1, 100, value => { pokemon.level = value; });
+		selectField(grid, 'Nature', data.natures, pokemon.nature || 'Hardy', value => { pokemon.nature = value; renderBuilder(); });
+		numberField(grid, 'Level', pokemon.level || 100, 1, 100, value => { pokemon.level = value; renderBuilder(); });
 		for (let i = 0; i < 4; i++) {
-			selectField(grid, `Move ${i + 1}`, ['', ...species.moves], pokemon.moves[i] || '', value => { pokemon.moves[i] = value; });
+			const moveSelect = selectField(grid, `Move ${i + 1}`, ['', ...data.moves], pokemon.moves[i] || '', value => { pokemon.moves[i] = value; });
+			for (const option of moveSelect.options) { const move = data.moveDetails[option.value]; if (move) option.textContent = `${option.value} / ${categorySymbol(move.category)} / ${move.pp} base PP`; }
 		}
+		statPanel(card, 'Base stats', species.baseStats);
+		statPanel(card, 'Total stats', builderStats(pokemon, species));
 		const details = element('details', undefined, card); element('summary', 'Training and details', details);
 		const extra = element('div', undefined, details); extra.className = 'grid';
 		selectField(extra, 'Gender', ['', 'M', 'F'], pokemon.gender || '', value => { pokemon.gender = value; });
@@ -107,32 +124,89 @@ function renderBuilder() {
 			element('h4', title, details);
 			const row = element('div', undefined, details); row.className = 'stats';
 			stats.forEach((stat, i) => numberField(row, statNames[i], pokemon[key]?.[stat] ?? fallback, 0, limit, value => {
-				pokemon[key] ||= {}; pokemon[key][stat] = value;
+				pokemon[key] ||= {}; pokemon[key][stat] = value; renderBuilder();
 			}));
 		}
 	});
+	renderOpponentBuilder();
 	$('add-member').disabled = teams[selected].pokemon.length >= 6;
 	$('battle').disabled = !teams[selected].pokemon.length || busy;
 }
 
-function renderPokemon(id, pokemon, trainer) {
+function renderOpponentBuilder() {
+ const parent = $('opponent-members'); parent.replaceChildren();
+ const team = teams[selected];
+ team.opponent ||= [{ species: 'Swampert', level: 100 }];
+ team.opponent.forEach((pokemon, index) => {
+  const row = element('div', undefined, parent); row.className = 'toolbar';
+  selectField(row, `Opponent ${index + 1}`, data.species.map(s => s.name), pokemon.species, value => { pokemon.species = value; });
+  numberField(row, 'Level', pokemon.level, 1, 100, value => { pokemon.level = value; });
+  button(row, 'Remove', () => { team.opponent.splice(index, 1); save(); renderBuilder(); }, team.opponent.length === 1);
+ });
+ button(parent, 'Add opponent', () => { team.opponent.push({ species: 'Bulbasaur', level: 100 }); save(); renderBuilder(); }, team.opponent.length >= 6);
+}
+function renderTeamIndicators(parent, members) {
+ const strip = element('div', undefined, parent); strip.className = 'team-indicators';
+ strip.setAttribute('role', 'img');
+ strip.setAttribute('aria-label', `${members.filter(p => !p.fainted).length} of ${members.length} Pokemon remaining`);
+ for (let i = 0; i < 6; i++) {
+  const member = members[i];
+  const ball = element('span', undefined, strip);
+  ball.className = `team-ball ${!member ? 'empty' : member.fainted ? 'fainted' : member.status ? 'status' : 'healthy'}`;
+  ball.title = !member ? 'Empty slot' : member.fainted ? 'Fainted' : member.status ? 'Status condition' : 'Ready';
+ }
+}
+
+function renderPokemon(id, pokemon, trainer, scene = currentBattle) {
 	const node = $(id); node.replaceChildren();
 	element('h3', trainer, node);
-	element('p', pokemon.name, node);
-	const stage = element('div', undefined, node); stage.className = 'sprite-stage';
+	renderTeamIndicators(node, id === 'player' ? scene.team : scene.opponentTeam);
+	element('p', `${pokemon.name} / Lv. ${pokemon.level}`, node);
+	if (id === 'player' && pokemon.xpProgress) {
+		const xp = pokemon.xpProgress;
+		element('p', xp.needed ? `xp:${xp.current}/${xp.needed}` : 'xp:MAX', node).className = 'xp-indicator';
+	}
+	if (id === 'player') element('p', `Ability: ${pokemon.ability}`, node);
+	const stage = element('div', undefined, node); stage.className = `sprite-stage weather-${scene.weather || 'none'}`;
+	const conditions = scene[id === 'player' ? 'playerConditions' : 'opponentConditions'] || [];
+	renderStageEffects(stage, conditions, scene.weather);
 	const sprite = element('img', undefined, stage);
 	sprite.className = `pokemon-sprite${pokemon.fainted ? ' fainted' : ''}`;
-	sprite.alt = pokemon.name;
+	const substitute = pokemon.effects?.some(e => e.id === 'substitute') && !pokemon.fainted;
+	sprite.alt = substitute ? `${pokemon.name}'s Substitute` : pokemon.name;
+	if (substitute) sprite.classList.add('substitute-sprite');
 	const spriteId = pokemon.sprite || pokemon.name.toLowerCase().replace(/[^a-z0-9]/g, '');
 	sprite.src = `/sprites/gen3${id === 'player' ? '-back' : ''}${pokemon.shiny ? '-shiny' : ''}/${spriteId}.png`;
+	if (substitute) sprite.src = `/effects/substitute${id === 'player' ? '-back' : ''}.png`;
 	const health = element('progress', undefined, node); health.max = pokemon.maxhp; health.value = pokemon.hp;
 	health.setAttribute('aria-label', `${pokemon.name} health`);
 	element('p', `${pokemon.hp} / ${pokemon.maxhp} HP${pokemon.status ? ` · ${statusNames[pokemon.status] || pokemon.status}` : ''}${pokemon.fainted ? ' · Fainted' : ''}`, node);
 	const effects = (pokemon.effects || []).filter(e => !['slp', 'brn', 'psn', 'tox', 'par', 'frz'].includes(e.id)).map(describeEffect);
 	for (const [stat, stage] of Object.entries(pokemon.boosts || {})) if (stage) effects.push(`${statNames[stats.indexOf(stat)] || stat} ${stage > 0 ? '+' : ''}${stage}`);
-	const conditions = currentBattle?.[id === 'player' ? 'playerConditions' : 'opponentConditions'] || [];
 	effects.push(...conditions.map(describeEffect));
+	if (pokemon.stats) {
+		statPanel(node, 'Total stats', pokemon.stats);
+	}
 	if (effects.length) element('p', effects.join(' · '), node).className = 'effects';
+}
+
+function renderStageEffects(stage, conditions, weather) {
+ if (weather) {
+  const overlay = element('div', undefined, stage); overlay.className = `weather-overlay ${weather}`;
+  overlay.setAttribute('aria-label', weatherNames[weather] || weather);
+ }
+ for (const condition of conditions) {
+  if (condition.id === 'spikes') {
+   const spikes = element('div', undefined, stage); spikes.className = 'hazard-spikes';
+   spikes.setAttribute('role', 'img'); spikes.setAttribute('aria-label', `Spikes: ${condition.layers || 1} layer(s)`);
+   for (let i = 0; i < (condition.layers || 1) * 3; i++) {
+    const spike = element('img', undefined, spikes); spike.src = '/effects/spikes.png'; spike.alt = '';
+   }
+  } else if (['reflect', 'lightscreen', 'safeguard', 'mist'].includes(condition.id)) {
+   const screen = element('div', undefined, stage); screen.className = `side-screen ${condition.id}`;
+   screen.setAttribute('aria-label', condition.name);
+  }
+ }
 }
 
 async function animateSprite(side, frames, duration = 320) {
@@ -143,7 +217,8 @@ async function animateSprite(side, frames, duration = 320) {
 
 // Replay only new protocol events, then show the authoritative engine snapshot.
 async function animateTurn(previous, next) {
-	const visible = { player: { ...previous.player[0] }, opponent: { ...previous.opponent[0] } };
+	const scene = structuredClone(previous);
+	const visible = { player: scene.player[0], opponent: scene.opponent[0] };
 	for (const [offset, line] of next.log.slice(previous.log.length).entries()) {
 		for (const entry of next.dialogue.filter(entry => entry.line === previous.log.length + offset)) {
 			element('p', entry.text, $('log'));
@@ -152,42 +227,61 @@ async function animateTurn(previous, next) {
 		}
 		const [, command, actor, value] = line.split('|');
 		const side = actor?.startsWith('p1') ? 'player' : actor?.startsWith('p2') ? 'opponent' : null;
+        if (command === '-weather') {
+         scene.weather = {RainDance: 'raindance', SunnyDay: 'sunnyday', Sandstorm: 'sandstorm', Hail: 'hail', none: ''}[actor] || '';
+         for (const id of ['player', 'opponent']) renderPokemon(id, visible[id], id === 'player' ? 'Player' : 'Trainer AI', scene);
+        }
+        if (side && (command === '-sidestart' || command === '-sideend')) {
+         const key = side === 'player' ? 'playerConditions' : 'opponentConditions';
+         const id = value.replace(/^move: /, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+         const old = scene[key].find(e => e.id === id);
+         scene[key] = scene[key].filter(e => e.id !== id);
+         if (command === '-sidestart') scene[key].push({ id, name: value.replace(/^move: /, ''), layers: (old?.layers || 0) + 1 });
+         renderPokemon(side, visible[side], side === 'player' ? 'Player' : 'Trainer AI', scene);
+        }
 		if (!side) continue;
 		const pokemon = visible[side];
-		if (command === 'move') {
+		if ((command === '-start' || command === '-end') && value === 'Substitute') {
+			pokemon.effects = (pokemon.effects || []).filter(e => e.id !== 'substitute');
+			if (command === '-start') pokemon.effects.push({ id: 'substitute', name: 'Substitute' });
+			renderPokemon(side, pokemon, side === 'player' ? 'Player' : 'Trainer AI', scene);
+		} else if (command === 'move') {
 			await animateSprite(side, [{ transform: 'translateX(0)' }, { transform: `translateX(${side === 'player' ? 35 : -35}px)` }, { transform: 'translateX(0)' }]);
 		} else if (command === 'switch' || command === 'drag') {
 			await animateSprite(side, [{ opacity: 1, transform: 'scale(1)' }, { opacity: 0, transform: 'scale(.2)' }], 180);
 			pokemon.name = value.split(',')[0];
 			pokemon.sprite = pokemon.name.toLowerCase().replace(/[^a-z0-9]/g, '');
 			pokemon.shiny = value.split(', ').includes('shiny');
-			pokemon.fainted = false; pokemon.status = '';
+			pokemon.level = Number(/(?:^|, )L(\d+)/.exec(value)?.[1] || 100);
+			if (side === 'player') { const member = next.team.find(p => p.name === pokemon.name); if (member) Object.assign(pokemon, member); }
+			pokemon.fainted = false; pokemon.status = ''; pokemon.effects = [];
+			if (side === 'opponent') pokemon.stats = next.opponent[0].stats;
 			const condition = line.split('|')[4].split(' ')[0].split('/').map(Number);
 			pokemon.hp = condition[0]; pokemon.maxhp = condition[1] || 100;
-			renderPokemon(side, pokemon, side === 'player' ? 'Player' : 'Trainer AI');
+			renderPokemon(side, pokemon, side === 'player' ? 'Player' : 'Trainer AI', scene);
 			await animateSprite(side, [{ opacity: 0, transform: 'scale(.2)' }, { opacity: 1, transform: 'scale(1)' }]);
 		} else if (command === '-formechange' || command === 'detailschange') {
 			pokemon.name = value.split(',')[0];
 			pokemon.sprite = pokemon.name.toLowerCase().replace(/[^a-z0-9]/g, '');
-			renderPokemon(side, pokemon, side === 'player' ? 'Player' : 'Trainer AI');
+			renderPokemon(side, pokemon, side === 'player' ? 'Player' : 'Trainer AI', scene);
 		} else if (command === '-damage' || command === '-heal') {
 			const condition = value.split(' ')[0].split('/').map(Number);
 			pokemon.hp = condition[0]; pokemon.maxhp = condition[1] || pokemon.maxhp;
-			renderPokemon(side, pokemon, side === 'player' ? 'Player' : 'Trainer AI');
+			renderPokemon(side, pokemon, side === 'player' ? 'Player' : 'Trainer AI', scene);
 			await animateSprite(side, command === '-damage' ? [{ opacity: 1 }, { opacity: .15, transform: 'translateX(8px)' }, { opacity: 1 }] : [{ filter: 'brightness(1)' }, { filter: 'brightness(2) drop-shadow(0 0 12px #78cf9a)' }, { filter: 'brightness(1)' }]);
 		} else if (command === '-status' || command === '-curestatus') {
 			pokemon.status = command === '-status' ? value : '';
-			renderPokemon(side, pokemon, side === 'player' ? 'Player' : 'Trainer AI');
+			renderPokemon(side, pokemon, side === 'player' ? 'Player' : 'Trainer AI', scene);
 		} else if (command === 'faint') {
 			await animateSprite(side, [{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(65px)' }], 450);
 			pokemon.fainted = true;
-			renderPokemon(side, pokemon, side === 'player' ? 'Player' : 'Trainer AI');
+			renderPokemon(side, pokemon, side === 'player' ? 'Player' : 'Trainer AI', scene);
 		}
 	}
 }
 function renderBag() {
 	const parent = $('bag-controls'); parent.replaceChildren();
-	$('bag').hidden = currentBattle.ended || !!currentBattle.request?.forceSwitch;
+	$('bag').hidden = currentBattle.ended || !!currentBattle.request?.forceSwitch || !!currentBattle.request?.active?.[0]?.moves.some(m => m.pp === undefined);
 	if ($('bag').hidden) return;
 	const item = selectField(parent, 'Item', currentBattle.bag.filter(i => i.count > 0).map(i => i.name), 'Potion', update);
 	for (const option of item.options) {
@@ -222,11 +316,42 @@ function renderBattle() {
 	$('battle-status').textContent = battle.ended ? (battle.winner ? `${battle.winner} wins!` : 'Tie!') : battle.request?.forceSwitch ? 'Choose your next Pokémon.' : 'Choose a move or switch Pokémon.';
 	if (!battle.ended) {
 		const active = battle.request?.active?.[0];
-		active?.moves.forEach((move, i) => button($('actions'), `${move.move} · ${move.pp}/${move.maxpp} PP`, () => choose(`move ${i + 1}`), busy || move.disabled || !move.pp));
+		active?.moves.forEach((move, i) => {
+			const struggle = move.id === 'struggle';
+			const forced = move.pp === undefined;
+			const category = struggle ? 'Physical' : battle.player[0].moves.find(m => m.name === move.move)?.category || data.moveDetails[move.move]?.category;
+			const accuracy = battle.player[0].moves.find(m => m.name === move.move)?.accuracy ?? data.moveDetails[move.move]?.accuracy;
+			const accuracyText = accuracy === true ? 'Always hits' : typeof accuracy === 'number' ? `Acc. ${accuracy}%` : '';
+			const moveButton = button($('actions'), `${forced ? '' : categorySymbol(category) + ' '}${move.move}${accuracyText ? ' / ' + accuracyText : ''} / ${forced ? 'Continue turn' : struggle ? 'No PP required' : `${move.pp}/${move.maxpp} PP`}`, () => choose(`move ${i + 1}`), busy || move.disabled || (!forced && !struggle && !move.pp));
+			const detail = battle.player[0].moves.find(m => m.id === move.id);
+            if (detail?.power != null) {
+             const power = element('span', `Power: ${detail.power}`, moveButton);
+             power.className = detail.variable ? 'move-power variable-power' : 'move-power';
+            }
+            const multiplier = detail?.effectiveness;
+            const symbol = {2:'^',4:'^^',0.5:'\u2304',0.25:'\u2304\u2304',0:'X'}[multiplier];
+            if (symbol) {
+             const badge = element('span', symbol, moveButton);
+             badge.className = `effectiveness ${multiplier === 0 ? 'immune' : multiplier > 1 ? 'effective' : 'resisted'}`;
+             badge.setAttribute('aria-label', `${multiplier}\u00d7 effectiveness`);
+             badge.title = `${multiplier}\u00d7 effectiveness against the current opponent`;
+            }
+			moveButton.title = 'Base accuracy. Weather, abilities, accuracy and evasion can change the chance to hit.';
+		});
 		battle.team.forEach((pokemon, i) => button($('switches'), `${pokemon.name} · ${pokemon.hp}/${pokemon.maxhp}`, () => choose(`switch ${i + 1}`), busy || pokemon.fainted || battle.request?.side?.pokemon[i]?.active || !!active?.trapped));
 	}
 	$('log').replaceChildren();
 	for (const entry of battle.dialogue) element('p', entry.text, $('log'));
+	const explanations = $('explanations'); explanations.replaceChildren();
+    const descriptions = data.descriptions;
+    for (let i = 0; i < 5; i++) {
+     const ability = i === 4;
+     const name = ability ? battle.player[0].ability : battle.player[0].moves[i]?.name;
+     const box = element('details', undefined, explanations);
+     element('summary', name || 'Empty move slot', box);
+     const key = (!ability && battle.player[0].moves[i]?.id) || (name || '').toLowerCase().replace(/[^a-z0-9]/g, '').replace(/^hiddenpower.+/, 'hiddenpower');
+     element('p', name ? descriptions[ability ? 'abilities' : 'moves'][key] || '' : 'No move.', box);
+    }
 	renderBag();
 	$('log').scrollTop = $('log').scrollHeight;
 	$('rematch').disabled = busy;
@@ -238,7 +363,7 @@ async function startBattle() {
 	try {
 		const team = structuredClone(teams[selected].pokemon);
 		for (const pokemon of team) pokemon.moves = pokemon.moves.filter(Boolean);
-		currentBattle = await api('battle', { team, previous: currentBattle?.id });
+		currentBattle = await api('battle', { team, opponent: teams[selected].opponent, previous: currentBattle?.id });
 		renderBattle();
 	} catch (error) { showError(error); }
 	finally { busy = false; if (!$('arena').hidden) renderBattle(); else renderBuilder(); }

@@ -99,9 +99,56 @@ async function main() {
 		assert.equal(await evaluate("currentBattle.bag.find(i => i.id === 'maxpotion').count"), 9);
 		await evaluate("document.querySelector('#back').click(); document.querySelector('#add-member').click()");
 		await waitFor("document.querySelectorAll('#members .member').length === 2");
+        // Exercise the actual forced-turn controls, opponent editor and narrow stat layout.
+        await evaluate("teams[selected].pokemon = [{species:'Mew', ability:'Synchronize', level:100, moves:['Fly','Hyper Beam','Soft-Boiled','Protect']}]; teams[selected].opponent = [{species:'Shuckle',level:100},{species:'Magikarp',level:5}]; renderBuilder(); save()");
+        assert.equal(await evaluate("document.querySelectorAll('#opponent-members select').length"), 2);
+        await evaluate("startBattle()");
+        assert.equal(await evaluate("document.querySelector('#error').textContent"), '');
+        assert.equal(await evaluate("currentBattle.opponentTeam.length"), 2);
+        assert.equal(await evaluate("document.querySelectorAll('.team-ball').length"), 12);
+        assert.equal(await evaluate("document.querySelector('#player').textContent.includes('Base stats')"), false);
+        assert.equal(await evaluate("document.querySelectorAll('#player .stats > div').length"), 6);
+        assert.equal(await evaluate("[...document.querySelectorAll('#player .stats > div')].every(cell => cell.scrollWidth <= cell.clientWidth)"), true);
+        await evaluate("choose('move 1')");
+        assert.equal(await evaluate("document.querySelectorAll('#actions button').length"), 1);
+        assert.equal(await evaluate("document.querySelector('#actions button').disabled"), false);
+        assert.match(await evaluate("document.querySelector('#actions button').textContent"), /Continue turn/);
+        await evaluate("document.querySelector('#actions button').click()");
+        await waitFor("!busy && currentBattle.turn === 3");
+        await evaluate("choose('move 2')");
+        assert.equal(await evaluate("document.querySelector('#actions button').disabled"), false);
+        await evaluate("document.querySelector('#actions button').click()");
+        await waitFor("!busy && currentBattle.turn === 5");
+        assert.match(await evaluate("document.querySelector('#log').textContent"), /recharge/i);
+        assert.equal(await evaluate("document.querySelector('#error').hidden"), true);
+        assert.equal(await evaluate("document.querySelectorAll('#opponent .stats > div').length"), 6);
+        assert.match(await evaluate("document.querySelector('#actions').textContent"), /Acc\. 95%/);
+        await evaluate("(async () => { teams[selected].pokemon = [{species:'Mew',ability:'Synchronize',level:100,moves:['Substitute','Rain Dance','Protect','Thunder']}]; await startBattle(); await choose('move 1'); })()");
+        assert.equal(await evaluate("document.querySelector('#player .substitute-sprite')?.getAttribute('src')"), '/effects/substitute-back.png');
+        await evaluate("choose('move 2')");
+        assert.equal(await evaluate("document.querySelectorAll('.weather-overlay.raindance').length"), 2);
+        assert.match(await evaluate("document.querySelector('#actions').textContent"), /Acc\. 70%/);
+        // All visuals follow the authoritative state and disappear when it clears.
+        assert.equal(await evaluate("document.querySelectorAll('#explanations details').length"), 5);
+        assert.match(await evaluate("document.querySelector('#player').textContent"), /Ability: Synchronize/);
+        assert.match(await evaluate("document.querySelector('#actions').textContent"), /Power:/);
+        assert.match(await evaluate("document.querySelector('#explanations').textContent"), /Synchronize/);
+        await evaluate("window.savedScene = structuredClone(currentBattle)");
+        for (const weather of ['raindance', 'sunnyday', 'sandstorm', 'hail']) {
+         await evaluate(`currentBattle.weather = '${weather}'; renderBattle()`);
+         assert.equal(await evaluate(`document.querySelectorAll('.weather-overlay.${weather}').length`), 2);
+        }
+        await evaluate("currentBattle.playerConditions = [{id:'spikes',name:'Spikes',layers:3},{id:'reflect',name:'Reflect'}]; currentBattle.opponentConditions = []; renderBattle()");
+        assert.equal(await evaluate("document.querySelectorAll('#player .hazard-spikes img').length"), 9);
+        assert.equal(await evaluate("document.querySelectorAll('#opponent .hazard-spikes img').length"), 0);
+        assert.equal(await evaluate("document.querySelectorAll('#player .side-screen.reflect').length"), 1);
+        await evaluate("currentBattle.weather = ''; currentBattle.playerConditions = []; currentBattle.player[0].effects = []; renderBattle()");
+        assert.equal(await evaluate("document.querySelectorAll('.weather-overlay, .hazard-spikes, .substitute-sprite, .side-screen').length"), 0);
+        await evaluate("currentBattle = window.savedScene; renderBattle()");
+        await waitFor("[...document.querySelectorAll('.sprite-stage img')].every(img => img.complete && img.naturalWidth > 0)");
 		assert.deepEqual(failures, []);
 		assert.deepEqual(requests.filter(url => !url.startsWith(origin) && url !== 'about:blank'), []);
-		console.log('Browser passed: saved teams, bot battle, move controls, team editing, no external requests or JavaScript errors.');
+		console.log('Browser passed: saved teams, bot battle, move controls, charging/recharge, opponent editing, party indicators, stat layout, accuracy, weather, Spikes, Substitute, no external requests or JavaScript errors.');
 	} finally {
 		socket?.close(); browser.kill();
 		server.closeAllConnections();

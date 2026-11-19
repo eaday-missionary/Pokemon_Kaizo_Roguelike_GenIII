@@ -1,0 +1,4634 @@
+{
+  "bulbasaur": {
+    "exp": 64,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "ivysaur": {
+    "exp": 141,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 1
+    }
+  },
+  "venusaur": {
+    "exp": 208,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 1
+    }
+  },
+  "charmander": {
+    "exp": 65,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "charmeleon": {
+    "exp": 142,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "charizard": {
+    "exp": 209,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "squirtle": {
+    "exp": 66,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "wartortle": {
+    "exp": 143,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "blastoise": {
+    "exp": 210,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 3
+    }
+  },
+  "caterpie": {
+    "exp": 53,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "metapod": {
+    "exp": 72,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "butterfree": {
+    "exp": 160,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 1
+    }
+  },
+  "weedle": {
+    "exp": 52,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "kakuna": {
+    "exp": 71,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "beedrill": {
+    "exp": 159,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "pidgey": {
+    "exp": 55,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "pidgeotto": {
+    "exp": 113,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "pidgeot": {
+    "exp": 172,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 3,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "rattata": {
+    "exp": 57,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "raticate": {
+    "exp": 116,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "spearow": {
+    "exp": 58,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "fearow": {
+    "exp": 162,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "ekans": {
+    "exp": 62,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "arbok": {
+    "exp": 147,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "pikachu": {
+    "exp": 82,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "raichu": {
+    "exp": 122,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 3,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "sandshrew": {
+    "exp": 93,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "sandslash": {
+    "exp": 163,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "nidoranf": {
+    "exp": 59,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "nidorina": {
+    "exp": 117,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "nidoqueen": {
+    "exp": 194,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 3,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "nidoranm": {
+    "exp": 60,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "nidorino": {
+    "exp": 118,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "nidoking": {
+    "exp": 195,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 3,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "clefairy": {
+    "exp": 68,
+    "growth": "FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "clefable": {
+    "exp": 129,
+    "growth": "FAST",
+    "evs": {
+      "hp": 3,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "vulpix": {
+    "exp": 63,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "ninetales": {
+    "exp": 178,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "jigglypuff": {
+    "exp": 76,
+    "growth": "FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "wigglytuff": {
+    "exp": 109,
+    "growth": "FAST",
+    "evs": {
+      "hp": 3,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "zubat": {
+    "exp": 54,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "golbat": {
+    "exp": 171,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "oddish": {
+    "exp": 78,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "gloom": {
+    "exp": 132,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "vileplume": {
+    "exp": 184,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "paras": {
+    "exp": 70,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "parasect": {
+    "exp": 128,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "venonat": {
+    "exp": 75,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "venomoth": {
+    "exp": 138,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "diglett": {
+    "exp": 81,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "dugtrio": {
+    "exp": 153,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "meowth": {
+    "exp": 69,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "persian": {
+    "exp": 148,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "psyduck": {
+    "exp": 80,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "golduck": {
+    "exp": 174,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "mankey": {
+    "exp": 74,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "primeape": {
+    "exp": 149,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "growlithe": {
+    "exp": 91,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "arcanine": {
+    "exp": 213,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "poliwag": {
+    "exp": 77,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "poliwhirl": {
+    "exp": 131,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "poliwrath": {
+    "exp": 185,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 3,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "abra": {
+    "exp": 73,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "kadabra": {
+    "exp": 145,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "alakazam": {
+    "exp": 186,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "machop": {
+    "exp": 88,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "machoke": {
+    "exp": 146,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "machamp": {
+    "exp": 193,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 3,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "bellsprout": {
+    "exp": 84,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "weepinbell": {
+    "exp": 151,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "victreebel": {
+    "exp": 191,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 3,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "tentacool": {
+    "exp": 105,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "tentacruel": {
+    "exp": 205,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "geodude": {
+    "exp": 86,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "graveler": {
+    "exp": 134,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "golem": {
+    "exp": 177,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 3,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "ponyta": {
+    "exp": 152,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "rapidash": {
+    "exp": 192,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "slowpoke": {
+    "exp": 99,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "slowbro": {
+    "exp": 164,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "magnemite": {
+    "exp": 89,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "magneton": {
+    "exp": 161,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "farfetchd": {
+    "exp": 94,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "doduo": {
+    "exp": 96,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "dodrio": {
+    "exp": 158,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "seel": {
+    "exp": 100,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "dewgong": {
+    "exp": 176,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "grimer": {
+    "exp": 90,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "muk": {
+    "exp": 157,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "shellder": {
+    "exp": 97,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "cloyster": {
+    "exp": 203,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "gastly": {
+    "exp": 95,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "haunter": {
+    "exp": 126,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "gengar": {
+    "exp": 190,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "onix": {
+    "exp": 108,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "drowzee": {
+    "exp": 102,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "hypno": {
+    "exp": 165,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "krabby": {
+    "exp": 115,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "kingler": {
+    "exp": 206,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "voltorb": {
+    "exp": 103,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "electrode": {
+    "exp": 150,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "exeggcute": {
+    "exp": 98,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "exeggutor": {
+    "exp": 212,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "cubone": {
+    "exp": 87,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "marowak": {
+    "exp": 124,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "hitmonlee": {
+    "exp": 139,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "hitmonchan": {
+    "exp": 140,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "lickitung": {
+    "exp": 127,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "koffing": {
+    "exp": 114,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "weezing": {
+    "exp": 173,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "rhyhorn": {
+    "exp": 135,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "rhydon": {
+    "exp": 204,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "chansey": {
+    "exp": 255,
+    "growth": "FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "tangela": {
+    "exp": 166,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "kangaskhan": {
+    "exp": 175,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "horsea": {
+    "exp": 83,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "seadra": {
+    "exp": 155,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "goldeen": {
+    "exp": 111,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "seaking": {
+    "exp": 170,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "staryu": {
+    "exp": 106,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "starmie": {
+    "exp": 207,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "mrmime": {
+    "exp": 136,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "scyther": {
+    "exp": 187,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "jynx": {
+    "exp": 137,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "electabuzz": {
+    "exp": 156,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "magmar": {
+    "exp": 167,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "pinsir": {
+    "exp": 200,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "tauros": {
+    "exp": 211,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "magikarp": {
+    "exp": 20,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "gyarados": {
+    "exp": 214,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "lapras": {
+    "exp": 219,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "ditto": {
+    "exp": 61,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "eevee": {
+    "exp": 92,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "vaporeon": {
+    "exp": 196,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "jolteon": {
+    "exp": 197,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "flareon": {
+    "exp": 198,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "porygon": {
+    "exp": 130,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "omanyte": {
+    "exp": 120,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "omastar": {
+    "exp": 199,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "kabuto": {
+    "exp": 119,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "kabutops": {
+    "exp": 201,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "aerodactyl": {
+    "exp": 202,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "snorlax": {
+    "exp": 154,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "articuno": {
+    "exp": 215,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 3
+    }
+  },
+  "zapdos": {
+    "exp": 216,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "moltres": {
+    "exp": 217,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "dratini": {
+    "exp": 67,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "dragonair": {
+    "exp": 144,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "dragonite": {
+    "exp": 218,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 3,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "mewtwo": {
+    "exp": 220,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "mew": {
+    "exp": 64,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 3,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "chikorita": {
+    "exp": 64,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "bayleef": {
+    "exp": 141,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "meganium": {
+    "exp": 208,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "cyndaquil": {
+    "exp": 65,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "quilava": {
+    "exp": 142,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "typhlosion": {
+    "exp": 209,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "totodile": {
+    "exp": 66,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "croconaw": {
+    "exp": 143,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "feraligatr": {
+    "exp": 210,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "sentret": {
+    "exp": 57,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "furret": {
+    "exp": 116,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "hoothoot": {
+    "exp": 58,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "noctowl": {
+    "exp": 162,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "ledyba": {
+    "exp": 54,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "ledian": {
+    "exp": 134,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "spinarak": {
+    "exp": 54,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "ariados": {
+    "exp": 134,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "crobat": {
+    "exp": 204,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 3,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "chinchou": {
+    "exp": 90,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "lanturn": {
+    "exp": 156,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "pichu": {
+    "exp": 42,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "cleffa": {
+    "exp": 37,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "igglybuff": {
+    "exp": 39,
+    "growth": "FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "togepi": {
+    "exp": 74,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "togetic": {
+    "exp": 114,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "natu": {
+    "exp": 73,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "xatu": {
+    "exp": 171,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "mareep": {
+    "exp": 59,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "flaaffy": {
+    "exp": 117,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "ampharos": {
+    "exp": 194,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "bellossom": {
+    "exp": 184,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 3
+    }
+  },
+  "marill": {
+    "exp": 58,
+    "growth": "FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "azumarill": {
+    "exp": 153,
+    "growth": "FAST",
+    "evs": {
+      "hp": 3,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "sudowoodo": {
+    "exp": 135,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "politoed": {
+    "exp": 185,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 3
+    }
+  },
+  "hoppip": {
+    "exp": 74,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "skiploom": {
+    "exp": 136,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "jumpluff": {
+    "exp": 176,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 3,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "aipom": {
+    "exp": 94,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "sunkern": {
+    "exp": 52,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "sunflora": {
+    "exp": 146,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "yanma": {
+    "exp": 147,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "wooper": {
+    "exp": 52,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "quagsire": {
+    "exp": 137,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "espeon": {
+    "exp": 197,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "umbreon": {
+    "exp": 197,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "murkrow": {
+    "exp": 107,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "slowking": {
+    "exp": 164,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 3
+    }
+  },
+  "misdreavus": {
+    "exp": 147,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 1
+    }
+  },
+  "unown": {
+    "exp": 61,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "wobbuffet": {
+    "exp": 177,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "girafarig": {
+    "exp": 149,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "pineco": {
+    "exp": 60,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "forretress": {
+    "exp": 118,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "dunsparce": {
+    "exp": 75,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "gligar": {
+    "exp": 108,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "steelix": {
+    "exp": 196,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "snubbull": {
+    "exp": 63,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "granbull": {
+    "exp": 178,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "qwilfish": {
+    "exp": 100,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "scizor": {
+    "exp": 200,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "shuckle": {
+    "exp": 80,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "heracross": {
+    "exp": 200,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "sneasel": {
+    "exp": 132,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "teddiursa": {
+    "exp": 124,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "ursaring": {
+    "exp": 189,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "slugma": {
+    "exp": 78,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "magcargo": {
+    "exp": 154,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "swinub": {
+    "exp": 78,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "piloswine": {
+    "exp": 160,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 1,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "corsola": {
+    "exp": 113,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "remoraid": {
+    "exp": 78,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "octillery": {
+    "exp": 164,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "delibird": {
+    "exp": 183,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "mantine": {
+    "exp": 168,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "skarmory": {
+    "exp": 168,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "houndour": {
+    "exp": 114,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "houndoom": {
+    "exp": 204,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "kingdra": {
+    "exp": 207,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 1
+    }
+  },
+  "phanpy": {
+    "exp": 124,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "donphan": {
+    "exp": 189,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "porygon2": {
+    "exp": 180,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "stantler": {
+    "exp": 165,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "smeargle": {
+    "exp": 106,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "tyrogue": {
+    "exp": 91,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "hitmontop": {
+    "exp": 138,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "smoochum": {
+    "exp": 87,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "elekid": {
+    "exp": 106,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "magby": {
+    "exp": 117,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "miltank": {
+    "exp": 200,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "blissey": {
+    "exp": 255,
+    "growth": "FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "raikou": {
+    "exp": 216,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "entei": {
+    "exp": 217,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 1,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "suicune": {
+    "exp": 215,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "larvitar": {
+    "exp": 67,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "pupitar": {
+    "exp": 144,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "tyranitar": {
+    "exp": 218,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 3,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "lugia": {
+    "exp": 220,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 3
+    }
+  },
+  "hooh": {
+    "exp": 220,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 3
+    }
+  },
+  "celebi": {
+    "exp": 64,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 3,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "treecko": {
+    "exp": 65,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "grovyle": {
+    "exp": 141,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "sceptile": {
+    "exp": 208,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 3,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "torchic": {
+    "exp": 65,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "combusken": {
+    "exp": 142,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "blaziken": {
+    "exp": 209,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 3,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "mudkip": {
+    "exp": 65,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "marshtomp": {
+    "exp": 143,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "swampert": {
+    "exp": 210,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 3,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "poochyena": {
+    "exp": 55,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "mightyena": {
+    "exp": 128,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "zigzagoon": {
+    "exp": 60,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "linoone": {
+    "exp": 128,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "wurmple": {
+    "exp": 54,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "silcoon": {
+    "exp": 71,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "beautifly": {
+    "exp": 161,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "cascoon": {
+    "exp": 72,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "dustox": {
+    "exp": 160,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 3
+    }
+  },
+  "lotad": {
+    "exp": 74,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "lombre": {
+    "exp": 141,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "ludicolo": {
+    "exp": 181,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 3
+    }
+  },
+  "seedot": {
+    "exp": 74,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "nuzleaf": {
+    "exp": 141,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "shiftry": {
+    "exp": 181,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 3,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "nincada": {
+    "exp": 65,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "ninjask": {
+    "exp": 155,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "shedinja": {
+    "exp": 95,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "taillow": {
+    "exp": 59,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "swellow": {
+    "exp": 162,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "shroomish": {
+    "exp": 65,
+    "growth": "FLUCTUATING",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "breloom": {
+    "exp": 165,
+    "growth": "FLUCTUATING",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "spinda": {
+    "exp": 85,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "wingull": {
+    "exp": 64,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "pelipper": {
+    "exp": 164,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "surskit": {
+    "exp": 63,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "masquerain": {
+    "exp": 128,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 1
+    }
+  },
+  "wailmer": {
+    "exp": 137,
+    "growth": "FLUCTUATING",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "wailord": {
+    "exp": 206,
+    "growth": "FLUCTUATING",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "skitty": {
+    "exp": 65,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "delcatty": {
+    "exp": 138,
+    "growth": "FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "kecleon": {
+    "exp": 132,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "baltoy": {
+    "exp": 58,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "claydol": {
+    "exp": 189,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "nosepass": {
+    "exp": 108,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "torkoal": {
+    "exp": 161,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "sableye": {
+    "exp": 98,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "barboach": {
+    "exp": 92,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "whiscash": {
+    "exp": 158,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "luvdisc": {
+    "exp": 110,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "corphish": {
+    "exp": 111,
+    "growth": "FLUCTUATING",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "crawdaunt": {
+    "exp": 161,
+    "growth": "FLUCTUATING",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "feebas": {
+    "exp": 61,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "milotic": {
+    "exp": 213,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "carvanha": {
+    "exp": 88,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "sharpedo": {
+    "exp": 175,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "trapinch": {
+    "exp": 73,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "vibrava": {
+    "exp": 126,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "flygon": {
+    "exp": 197,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "makuhita": {
+    "exp": 87,
+    "growth": "FLUCTUATING",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "hariyama": {
+    "exp": 184,
+    "growth": "FLUCTUATING",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "electrike": {
+    "exp": 104,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "manectric": {
+    "exp": 168,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "numel": {
+    "exp": 88,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "camerupt": {
+    "exp": 175,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "spheal": {
+    "exp": 75,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "sealeo": {
+    "exp": 128,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "walrein": {
+    "exp": 192,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 3,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "cacnea": {
+    "exp": 97,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "cacturne": {
+    "exp": 177,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "snorunt": {
+    "exp": 74,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "glalie": {
+    "exp": 187,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "lunatone": {
+    "exp": 150,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "solrock": {
+    "exp": 150,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "azurill": {
+    "exp": 33,
+    "growth": "FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "spoink": {
+    "exp": 89,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "grumpig": {
+    "exp": 164,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "plusle": {
+    "exp": 120,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "minun": {
+    "exp": 120,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "mawile": {
+    "exp": 98,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "meditite": {
+    "exp": 91,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "medicham": {
+    "exp": 153,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "swablu": {
+    "exp": 74,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "altaria": {
+    "exp": 188,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "wynaut": {
+    "exp": 44,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "duskull": {
+    "exp": 97,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "dusclops": {
+    "exp": 179,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "roselia": {
+    "exp": 152,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "slakoth": {
+    "exp": 83,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "vigoroth": {
+    "exp": 126,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 2,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "slaking": {
+    "exp": 210,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 3,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "gulpin": {
+    "exp": 75,
+    "growth": "FLUCTUATING",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "swalot": {
+    "exp": 168,
+    "growth": "FLUCTUATING",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "tropius": {
+    "exp": 169,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "whismur": {
+    "exp": 68,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "loudred": {
+    "exp": 126,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "exploud": {
+    "exp": 184,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 3,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "clamperl": {
+    "exp": 142,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "huntail": {
+    "exp": 178,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "gorebyss": {
+    "exp": 178,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "absol": {
+    "exp": 174,
+    "growth": "MEDIUM_SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "shuppet": {
+    "exp": 97,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "banette": {
+    "exp": 179,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "seviper": {
+    "exp": 165,
+    "growth": "FLUCTUATING",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "zangoose": {
+    "exp": 165,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "relicanth": {
+    "exp": 198,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "aron": {
+    "exp": 96,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "lairon": {
+    "exp": 152,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "aggron": {
+    "exp": 205,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 3,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "castform": {
+    "exp": 145,
+    "growth": "MEDIUM_FAST",
+    "evs": {
+      "hp": 1,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "volbeat": {
+    "exp": 146,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "illumise": {
+    "exp": 146,
+    "growth": "FLUCTUATING",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 1,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "lileep": {
+    "exp": 121,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "cradily": {
+    "exp": 201,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 2
+    }
+  },
+  "anorith": {
+    "exp": 119,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "armaldo": {
+    "exp": 200,
+    "growth": "ERRATIC",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "ralts": {
+    "exp": 70,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "kirlia": {
+    "exp": 140,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 2,
+      "spd": 0
+    }
+  },
+  "gardevoir": {
+    "exp": 208,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "bagon": {
+    "exp": 89,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "shelgon": {
+    "exp": 144,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "salamence": {
+    "exp": 218,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 3,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "beldum": {
+    "exp": 103,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 1,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "metang": {
+    "exp": 153,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "metagross": {
+    "exp": 210,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 3,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "regirock": {
+    "exp": 217,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 3,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "regice": {
+    "exp": 216,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 3
+    }
+  },
+  "registeel": {
+    "exp": 215,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 2,
+      "spe": 0,
+      "spa": 0,
+      "spd": 1
+    }
+  },
+  "kyogre": {
+    "exp": 218,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "groudon": {
+    "exp": 218,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 3,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "rayquaza": {
+    "exp": 220,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 2,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "latias": {
+    "exp": 211,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 3
+    }
+  },
+  "latios": {
+    "exp": 211,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 3,
+      "spd": 0
+    }
+  },
+  "jirachi": {
+    "exp": 215,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 3,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 0,
+      "spd": 0
+    }
+  },
+  "deoxys": {
+    "exp": 215,
+    "growth": "SLOW",
+    "evs": {
+      "hp": 0,
+      "atk": 1,
+      "def": 0,
+      "spe": 1,
+      "spa": 1,
+      "spd": 0
+    }
+  },
+  "chimecho": {
+    "exp": 147,
+    "growth": "FAST",
+    "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spe": 0,
+      "spa": 1,
+      "spd": 1
+    }
+  }
+}

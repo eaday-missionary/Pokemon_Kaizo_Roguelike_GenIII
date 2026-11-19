@@ -105,6 +105,7 @@ function chooseBag(battle, id, targetIndex, moveIndex = 0) {
 	const bag = bags.get(battle);
 	const entry = ITEMS[id];
 	if (battle.ended || side.requestState !== 'move' || side.activeRequest?.forceSwitch) throw new Error('Choose a replacement Pokémon first.');
+	if (side.activeRequest?.active?.[0]?.moves.some(m => m.pp === undefined)) throw new Error('Finish the current move or recharge before using an item.');
 	if (!entry || !bag.counts[id]) throw new Error('That item is unavailable.');
 	if (!Number.isInteger(targetIndex) || !side.pokemon[targetIndex]) throw new Error('Choose a Pokémon.');
 	if (!Number.isInteger(moveIndex) || moveIndex < 0 || moveIndex > 3) throw new Error('Choose a move.');
